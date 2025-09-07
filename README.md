@@ -1,4 +1,4 @@
-# Onkar Shinde - Full Stack Developer Portfolio 🚀
+# Onkar Shinde - Full Stack Developer Portfolio 💼✨🚀
 
 A modern, responsive portfolio showcasing my expertise as a Full Stack Developer. Explore my projects, skills, and professional journey through a clean, interactive timeline. This website is built with a focus on delivering a seamless user experience across all devices.
 
@@ -22,7 +22,7 @@ To get a local copy of this portfolio running on your machine, follow these simp
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/onkarshinde2307/Onkar-Shinde-Developer-Portfolio.git](https://github.com/onkarshinde2307/Onkar-Shinde-Developer-Portfolio.git)
+    git clone  https://github.com/onkarshinde2307/Onkar-Shinde-Developer-Portfolio.git
     ```
 
 2.  **Navigate to the project directory:**
