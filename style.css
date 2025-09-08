@@ -979,4 +979,19 @@ section {
     left: -8px;
     right: auto;
   }
+
+  /* mobile and device fit screen  */
+  /* Styles for screens up to 768px wide (typical mobile) */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column; /* Stacks items vertically on mobile */
+  }
+}
+
+/* Styles for screens larger than 768px (tablets and desktop) */
+@media (min-width: 769px) {
+  .hero-container {
+    flex-direction: row; /* Arranges items side-by-side on desktop */
+  }
+}
 }
