@@ -81,14 +81,14 @@ document.addEventListener('DOMContentLoaded', function() {
     let isDeleting = false;
 
     const fixedHeightContainer = document.querySelector('.typewriter-container');
-    
+
     if (fixedHeightContainer) {
         typewriterText.textContent = "Full Stack .NET Developer";
         const maxHeight = typewriterText.offsetHeight;
         fixedHeightContainer.style.minHeight = `${maxHeight}px`;
         typewriterText.textContent = "";
     }
-    
+
     function typeWriter() {
         const phrase = phrases[currentPhrase];
         if (isDeleting) {
@@ -243,96 +243,99 @@ document.addEventListener('DOMContentLoaded', function() {
 // Particle Background Animation
 document.addEventListener('DOMContentLoaded', function() {
     const particlesContainer = document.getElementById('particles');
-    const particleCount = 50;
-
-    function createParticle() {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 6 + 's';
-        particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-        particlesContainer.appendChild(particle);
-    }
-    for (let i = 0; i < particleCount; i++) {
-        createParticle();
+    if (particlesContainer) {
+        const particleCount = 50;
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            particlesContainer.appendChild(particle);
+        }
+        for (let i = 0; i < particleCount; i++) {
+            createParticle();
+        }
     }
 });
 
 // Dynamic Background System - Floating Bubbles & Geometric Shapes
 document.addEventListener('DOMContentLoaded', function() {
     const bubblesContainer = document.getElementById('bubbles');
-    const bubbleCount = 8;
     const shapesContainer = document.getElementById('shapes');
-    const shapeTypes = ['triangle', 'diamond', 'hexagon'];
 
-    function createBubble() {
-        const bubble = document.createElement('div');
-        bubble.className = 'bubble';
-        const size = Math.random() * 30 + 15;
-        bubble.style.width = size + 'px';
-        bubble.style.height = size + 'px';
-        bubble.style.left = Math.random() * 100 + '%';
-        const duration = Math.random() * 7 + 8;
-        bubble.style.animationDuration = duration + 's';
-        bubble.style.animationDelay = Math.random() * 5 + 's';
-        bubble.style.opacity = Math.random() * 0.7 + 0.3;
-        bubblesContainer.appendChild(bubble);
+    if (bubblesContainer) {
+        const bubbleCount = 8;
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            const size = Math.random() * 30 + 15;
+            bubble.style.width = size + 'px';
+            bubble.style.height = size + 'px';
+            bubble.style.left = Math.random() * 100 + '%';
+            const duration = Math.random() * 7 + 8;
+            bubble.style.animationDuration = duration + 's';
+            bubble.style.animationDelay = Math.random() * 5 + 's';
+            bubble.style.opacity = Math.random() * 0.7 + 0.3;
+            bubblesContainer.appendChild(bubble);
 
-        setTimeout(() => {
-            if (bubble.parentNode) {
-                bubble.parentNode.removeChild(bubble);
-            }
-        }, (duration + 5) * 1000);
-    }
-
-    function createShape() {
-        const shape = document.createElement('div');
-        shape.className = 'shape';
-        const shapeType = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
-        if (shapeType === 'triangle') {
-            shape.classList.add('shape-triangle');
-            const size = Math.random() * 12 + 10;
-            shape.style.borderBottomWidth = size + 'px';
-            shape.style.borderLeftWidth = size / 2 + 'px';
-            shape.style.borderRightWidth = size / 2 + 'px';
-            shape.style.borderBottomColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
-        } else if (shapeType === 'diamond') {
-            shape.classList.add('shape-diamond');
-            const size = Math.random() * 15 + 10;
-            shape.style.width = size + 'px';
-            shape.style.height = size + 'px';
-        } else {
-            shape.classList.add('shape-hexagon');
-            const size = Math.random() * 18 + 12;
-            shape.style.width = size + 'px';
-            shape.style.height = size * 0.866 + 'px';
+            setTimeout(() => {
+                if (bubble.parentNode) {
+                    bubble.parentNode.removeChild(bubble);
+                }
+            }, (duration + 5) * 1000);
         }
-
-        shape.style.left = Math.random() * 100 + '%';
-        const duration = Math.random() * 2 + 3;
-        shape.style.animationDuration = duration + 's';
-        shape.style.animationDelay = Math.random() * 5 + 's';
-        shapesContainer.appendChild(shape);
-
-        setTimeout(() => {
-            if (shape.parentNode) {
-                shape.parentNode.removeChild(shape);
+        for (let i = 0; i < bubbleCount; i++) {
+            setTimeout(() => createBubble(), i * 1000);
+        }
+        setInterval(() => {
+            createBubble();
+        }, 4000);
+    }
+    
+    if (shapesContainer) {
+        const shapeTypes = ['triangle', 'diamond', 'hexagon'];
+        function createShape() {
+            const shape = document.createElement('div');
+            shape.className = 'shape';
+            const shapeType = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
+            if (shapeType === 'triangle') {
+                shape.classList.add('shape-triangle');
+                const size = Math.random() * 12 + 10;
+                shape.style.borderBottomWidth = size + 'px';
+                shape.style.borderLeftWidth = size / 2 + 'px';
+                shape.style.borderRightWidth = size / 2 + 'px';
+                shape.style.borderBottomColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+            } else if (shapeType === 'diamond') {
+                shape.classList.add('shape-diamond');
+                const size = Math.random() * 15 + 10;
+                shape.style.width = size + 'px';
+                shape.style.height = size + 'px';
+            } else {
+                shape.classList.add('shape-hexagon');
+                const size = Math.random() * 18 + 12;
+                shape.style.width = size + 'px';
+                shape.style.height = size * 0.866 + 'px';
             }
-        }, (duration + 5) * 1000);
-    }
 
-    for (let i = 0; i < bubbleCount; i++) {
-        setTimeout(() => createBubble(), i * 1000);
-    }
-    setInterval(() => {
-        createBubble();
-    }, 4000);
+            shape.style.left = Math.random() * 100 + '%';
+            const duration = Math.random() * 2 + 3;
+            shape.style.animationDuration = duration + 's';
+            shape.style.animationDelay = Math.random() * 5 + 's';
+            shapesContainer.appendChild(shape);
 
-    for (let i = 0; i < 5; i++) {
-        setTimeout(() => createShape(), i * 1500);
+            setTimeout(() => {
+                if (shape.parentNode) {
+                    shape.parentNode.removeChild(shape);
+                }
+            }, (duration + 5) * 1000);
+        }
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => createShape(), i * 1500);
+        }
+        setInterval(() => {
+            createShape();
+        }, 3500);
     }
-    setInterval(() => {
-        createShape();
-    }, 3500);
 });
