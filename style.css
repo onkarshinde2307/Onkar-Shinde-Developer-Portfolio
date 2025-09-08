@@ -181,7 +181,7 @@ section {
 
 #typewriter {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
-  font-weight: 600;
+  font-weight: 500px;
   font-size :xx-large;
   white-space: nowrap;
   overflow: hidden;
