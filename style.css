@@ -173,25 +173,28 @@ section {
 }
 
 .typewriter-container {
-  height: 3rem;
+  height: auto; /* let it adjust based on content */
   position: relative;
-  min-width: clamp(250px, 60vw, 450px);
+  width: 100%;
   margin-top: 10px;
+  padding: 0 10px; /* small padding to prevent overflow */
+  box-sizing: border-box;
+  text-align: center; /* center text for smaller screens */
 }
 
 #typewriter {
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-  font-weight: 500px;
-  font-size :xx-large;
-  white-space: nowrap;
+  font-size: clamp(1.2rem, 5vw, 2.5rem); /* slightly smaller min font on mobile */
+  font-weight: 600;
+  white-space: normal; /* allow wrapping on smaller screens */
   overflow: hidden;
   display: inline-block;
   border-right: 3px solid var(--highlight);
   padding-right: 5px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative; /* remove absolute positioning */
+  top: auto;
+  left: auto;
+  transform: none;
+  word-break: break-word; /* wrap long phrases */
 }
 
 .hero-description {
