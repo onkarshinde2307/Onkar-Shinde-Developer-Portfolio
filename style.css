@@ -173,29 +173,29 @@ section {
 }
 
 .typewriter-container {
-  height: auto; /* let it adjust based on content */
-  position: relative;
   width: 100%;
-  margin-top: 10px;
-  padding: 0 10px; 
+  max-width: 100%;
+  margin: 10px auto;
+  padding: 0 10px; /* prevent overflow on small screens */
   box-sizing: border-box;
-  text-align: center;  
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+  min-height: 3rem; /* optional for a consistent container */
 }
 
 #typewriter {
-  font-size: clamp(1.2rem, 5vw, 2.5rem);  
+  font-size: clamp(1.2rem, 5vw, 2.5rem); /* responsive font size */
   font-weight: 600;
-  white-space: normal;  
+  white-space: normal; /* allow wrapping */
   overflow: hidden;
   display: inline-block;
   border-right: 3px solid var(--highlight);
   padding-right: 5px;
-  position: relative;  
-  top: auto;
-  left: auto;
-  transform: none;
-  word-break: break-word ;
+  word-break: break-word; /* wrap long phrases */
+  text-align: center;
 }
+
 
 .hero-description {
   font-size: clamp(1rem, 2.5vw, 1.1rem);
